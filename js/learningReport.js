@@ -1,5 +1,5 @@
 angular.module('learningReport', [])
-    .directive('learningReportDirective', function (courseSelectionService, helperService) {
+    .directive('learningReportDirective', function (selectedCoursesService, helperService) {
         return {
             restrict: "E",
             replace: true,
@@ -60,7 +60,7 @@ angular.module('learningReport', [])
                                 opportunity.partOf = '-';
 
                             flatArray.push(opportunity);
-                            courseSelectionService.addId(opportunity.elmoIdentifier); // all are selected at the beginning
+                            selectedCoursesService.addId(opportunity.elmoIdentifier); // all are selected at the beginning
 
                             // Recursion
                             if (opportunity.hasPart)
@@ -97,12 +97,12 @@ angular.module('learningReport', [])
 
                 $scope.checkBoxChanged = function (opportunity) {
                     if (opportunity.selected) {
-                        courseSelectionService.addId(opportunity.elmoIdentifier)
+                        selectedCoursesService.addId(opportunity.elmoIdentifier)
                         selectParent(opportunity);
 
                     }
                     else {
-                        courseSelectionService.removeId(opportunity.elmoIdentifier);
+                        selectedCoursesService.removeId(opportunity.elmoIdentifier);
                         deselectChilds(opportunity);
                     }
                 }
