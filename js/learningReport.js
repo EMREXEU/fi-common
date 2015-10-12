@@ -1,5 +1,5 @@
 angular.module('learningReport', [])
-    .directive('learningReportDirective', function (courseSelectionService) {
+    .directive('learningReportDirective', function (courseSelectionService, helperService) {
         return {
             restrict: "E",
             replace: true,
@@ -15,7 +15,7 @@ angular.module('learningReport', [])
                 if (!angular.isArray($scope.report.learningOpportunitySpecification))
                     $scope.report.learningOpportunitySpecification = [{learningOpportunitySpecification: $scope.report.learningOpportunitySpecification}];
 
-                $scope.getRightLanguage = courseSelectionService.getRightLanguage;
+                $scope.getRightLanguage = helperService.getRightLanguage;
 
                 $scope.selectedTypes = function (report) {
                     if ($scope.onlyViewing)
@@ -73,7 +73,7 @@ angular.module('learningReport', [])
                 flatArray = recursiveOpportunityFlattening($scope.report.learningOpportunitySpecification);
                 $scope.flattenedLearningOpportunities = flatArray;
 
-                $scope.issuerName = courseSelectionService.getRightLanguage($scope.report.issuer.title);
+                $scope.issuerName = helperService.getRightLanguage($scope.report.issuer.title);
 
                 var selectParent = function (child) {
                     if (child.partOf != '-')
