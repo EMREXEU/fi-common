@@ -9,7 +9,7 @@ angular.module('learningReport', [])
                 levelFilter: '=',
                 onlyViewing: '='
             },
-            templateUrl: 'partials/learningReport.html',
+            templateUrl: 'fi-common/partials/learningReport.html',
             controller: function ($scope) {
 
                 if (!angular.isArray($scope.report.learningOpportunitySpecification))
