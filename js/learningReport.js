@@ -50,11 +50,11 @@ angular.module('learningReport', [])
                                     if (identifier.type == "elmo")
                                         opportunity.elmoIdentifier = identifier.content;
                                 })
-                            else
+                            else if (opportunity.identifier)
                                 opportunity.elmoIdentifier = opportunity.identifier.content;
 
                             // Find parents Elmo identifier
-                            if (partOf)
+                            if (partOf && partOf.elmoIdentifier)
                                 opportunity.partOf = partOf.elmoIdentifier
                             else
                                 opportunity.partOf = '-';
