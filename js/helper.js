@@ -53,11 +53,20 @@ angular.module('helper', [])
                 });
                 return goodReport;
             });
-        }
+        };
+
+        var calculateAndFilter = function(reports) {
+            angular.forEach(reports, function (report) {
+                if (report.learningOpportunitySpecification) {
+                    report.numberOfCourses = calculateCourses(report.learningOpportunitySpecification);
+                }
+            });
+            return filterProperReports(reports);
+        };
 
         return {fixReports : fixReports,
                 getRightLanguage : getRightLanguage,
-                calculateCourses : calculateCourses,
+                calculateAndFilter : calculateAndFilter,
                 filterProperReports : filterProperReports};
 
     });
