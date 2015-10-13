@@ -14,7 +14,10 @@ angular.module('selectedCourses', [])
                 selectedCourseIds.splice(index, 1);
         };
 
+        var reports = null;
+
         return {selectedCourseIds: selectedCourseIds,
                 addId : addId,
-                removeId :removeId
+                removeId :removeId,
+                reports : reports
     }});

@@ -42,7 +42,8 @@ angular.module('learningReport', [])
                                 var opportunity = opportunityWrapper;
 
                             // Add properties for table
-                            opportunity.selected = true;
+                            if (opportunity.selected === undefined)
+                                opportunity.selected = true;
 
                             // Add Elmo identifier
                             if (angular.isArray(opportunity.identifier))
