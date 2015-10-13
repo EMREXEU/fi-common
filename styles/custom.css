@@ -18,18 +18,21 @@
     margin: 5px;
 }
 
-.custom-go-button {
+.custom-go-button, .custom-panic-button {
     color: white;
     border: 2px solid lightgrey;
-    background-color: #629c44;
+
     padding: 10px;
     border-radius: 5px;
     font-size: 15px;
 
 }
+.custom-go-button{
+    background-color: #629c44;
+}
 
 .custom-panic-button {
-    background-color: red;
+    background-color: firebrick;
 }
 
 .custom-zero-margin {
