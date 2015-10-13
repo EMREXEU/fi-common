@@ -21,15 +21,22 @@ angular.module('helper', [])
             return reports;
         };
 
-        var selectedLanguage = "fi";
+        var selectedLanguage = "en";
 
         function getRightLanguage(titles) {
             var result = "";
+            var planB = "";
             angular.forEach(titles, function (title) {
-                if (title['xml:lang'] === selectedLanguage)
+                if (title.content)
+                    planB = title.content; // anything is better than nothing
+
+                if (title['xml:lang'] === selectedLanguage && title.content)
                     result = title['content'];
             });
-            return result;
+            if (result)
+                return result
+            else
+                return planB;
         };
 
         var calculateCourses = function (learningOpportunityArray, count) {

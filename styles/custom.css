@@ -10,6 +10,9 @@
 .custom-container {
     margin: 10px;
 }
+.custom-selected {
+    background-color:  whitesmoke;
+}
 
 .custom-option-margin {
     margin: 5px;

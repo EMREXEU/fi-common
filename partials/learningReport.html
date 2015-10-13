@@ -14,7 +14,7 @@
         </thead>
         <tbody>
 
-        <tr ng-repeat="opportunity in flattenedLearningOpportunities | filter:selectedTypes | filter:selectedLevel">
+        <tr ng-class="{'custom-selected' : opportunity.selected}" ng-repeat="opportunity in flattenedLearningOpportunities | filter:selectedTypes | filter:selectedLevel">
             <td>
                 <div ng-hide="onlyViewing"><input type="checkbox" ng-model="opportunity.selected"
                                             ng-change="checkBoxChanged(opportunity)">
