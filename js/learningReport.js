@@ -35,37 +35,38 @@ angular.module('learningReport', [])
                 function recursiveOpportunityFlattening(learningOpportunityArray, partOf) {
                     angular.forEach(learningOpportunityArray, function (opportunityWrapper) {
 
-                            // in some cases
-                            if (opportunityWrapper.learningOpportunitySpecification)
-                                var opportunity = opportunityWrapper.learningOpportunitySpecification;
-                            else
-                                var opportunity = opportunityWrapper;
+                        // in some cases
+                        if (opportunityWrapper.learningOpportunitySpecification)
+                            var opportunity = opportunityWrapper.learningOpportunitySpecification;
+                        else
+                            var opportunity = opportunityWrapper;
 
-                            // Add properties for table
-                            if (opportunity.selected === undefined)
-                                opportunity.selected = true;
 
-                            // Add Elmo identifier
-                            if (angular.isArray(opportunity.identifier))
-                                angular.forEach(opportunity.identifier, function (identifier) {
-                                    if (identifier.type == "elmo")
-                                        opportunity.elmoIdentifier = identifier.content;
-                                })
-                            else if (opportunity.identifier)
-                                opportunity.elmoIdentifier = opportunity.identifier.content;
+                        // Add Elmo identifier
+                        if (angular.isArray(opportunity.identifier))
+                            angular.forEach(opportunity.identifier, function (identifier) {
+                                if (identifier.type == "elmo")
+                                    opportunity.elmoIdentifier = identifier.content;
+                            })
+                        else if (opportunity.identifier)
+                            opportunity.elmoIdentifier = opportunity.identifier.content;
 
-                            // Find parents Elmo identifier
-                            if (partOf && partOf.elmoIdentifier)
-                                opportunity.partOf = partOf.elmoIdentifier
-                            else
-                                opportunity.partOf = '-';
+                        // Find parents Elmo identifier
+                        if (partOf && partOf.elmoIdentifier)
+                            opportunity.partOf = partOf.elmoIdentifier
+                        else
+                            opportunity.partOf = '-';
 
-                            flatArray.push(opportunity);
+                        flatArray.push(opportunity);
+
+                        // Add properties for table
+                        if (opportunity.selected === undefined) {
+                            opportunity.selected = true;
                             selectedCoursesService.addId(opportunity.elmoIdentifier); // all are selected at the beginning
-
-                            // Recursion
-                            if (opportunity.hasPart)
-                                recursiveOpportunityFlattening(opportunity.hasPart, opportunity)
+                        }
+                        // Recursion
+                        if (opportunity.hasPart)
+                            recursiveOpportunityFlattening(opportunity.hasPart, opportunity)
                     });
                     return flatArray;
                 };
