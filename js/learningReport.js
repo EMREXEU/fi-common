@@ -16,7 +16,7 @@ angular.module('learningReport', [])
 
                 $scope.selectAllClicked = function(){
                     angular.forEach($scope.flattenedLearningOpportunities, function(opportunity){
-                        opportunity.selected = selectAll;
+                        opportunity.selected = $scope.selectAll;
                     });
                 }
 
