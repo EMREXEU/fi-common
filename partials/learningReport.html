@@ -2,8 +2,8 @@
     <h3>{{issuerName}} ({{report.learner.fullName}}) </h3>
     <table class="pure-table">
         <thead>
-        <th> <div ng-hide="onlyViewing"><input type="checkbox" ng-model="opportunity.selected"
-                                               ng-change="checkBoxChanged(opportunity)">
+        <th> <div ng-hide="onlyViewing"><input type="checkbox" ng-model="selectAll"
+                                               ng-change="selectAllClicked()">
         </div></th>
         <th>Code</th>
         <th>Title</th>

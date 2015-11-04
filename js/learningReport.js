@@ -12,6 +12,14 @@ angular.module('learningReport', [])
             templateUrl: 'fi-common/partials/learningReport.html',
             controller: function ($scope) {
 
+                $scope.selectAll = true;
+
+                $scope.selectAllClicked = function(){
+                    angular.forEach($scope.flattenedLearningOpportunities, function(opportunity){
+                        opportunity.selected = selectAll;
+                    });
+                }
+
                 if (!angular.isArray($scope.report.learningOpportunitySpecification))
                     $scope.report.learningOpportunitySpecification = [{learningOpportunitySpecification: $scope.report.learningOpportunitySpecification}];
 
