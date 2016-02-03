@@ -28,7 +28,7 @@ angular.module('helper', [])
                 var planB = "";
                 if (angular.isArray(titles))
                     angular.forEach(titles, function (title) {
-                        debugger;
+                      
                         if (title.content)
                             planB = title.content; // anything is better than nothing
 
