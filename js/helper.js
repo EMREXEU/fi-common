@@ -28,7 +28,7 @@ angular.module('helper', [])
                 var planB = "";
                 if (angular.isArray(titles))
                     angular.forEach(titles, function (title) {
-                      
+
                         if (title.content)
                             planB = title.content; // anything is better than nothing
 
@@ -77,9 +77,24 @@ angular.module('helper', [])
                 return filterProperReports(reports);
             };
 
+            function formatDate(learningOpportunityInstance) {
+              
+                if (learningOpportunityInstance.start &&
+                        learningOpportunityInstance.date) {
+                    return learningOpportunityInstance.start + " - " + learningOpportunityInstance.date;
+                } else if (learningOpportunityInstance.date) {
+                    return learningOpportunityInstance.date;
+                } else if (learningOpportunityInstance.start) {
+                    return learningOpportunityInstance.start;
+                }
+                return "";
+
+            };
+
             return {fixReports: fixReports,
                 getRightLanguage: getRightLanguage,
                 calculateAndFilter: calculateAndFilter,
-                filterProperReports: filterProperReports};
+                filterProperReports: filterProperReports,
+                formatDate: formatDate};
 
         });
