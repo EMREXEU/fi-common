@@ -16,8 +16,7 @@
         <th>Date</th>
         </thead>
         <tbody>
-
-        <tr ng-class="{'custom-selected' : opportunity.selected}" ng-repeat="opportunity in flattenedLearningOpportunities | filter:selectedTypes | filter:selectedLevel">
+        <tr ng-class="{'custom-selected' : opportunity.selected}" ng-repeat="opportunity in flattenedLearningOpportunities | filter:selectedTypes | filter:selectedLevel | filter:selectedTimeInterval">
             <td>
                 <div ng-hide="onlyViewing"><input type="checkbox" ng-model="opportunity.selected"
                                             ng-change="checkBoxChanged(opportunity)">
@@ -31,10 +30,10 @@
             <td>{{opportunity.type}}</td>
             <td>{{opportunity.specifies.learningOpportunityInstance.credit.value}} {{opportunity.specifies.learningOpportunityInstance.credit.scheme}}</td>
             <td>{{opportunity.specifies.learningOpportunityInstance.resultLabel}}</td>
-            <td>{{opportunity.specifies.learningOpportunityInstance.date}}</td>        
+            <td>{{opportunity.specifies.learningOpportunityInstance.date}}</td>
         </tr>
         </tbody>
     </table>
-    
-   
+
+
 </div>
