@@ -58,6 +58,8 @@ angular.module('learningReport', [])
                                 angular.forEach(opportunity.identifier, function (identifier) {
                                     if (identifier.type == "elmo")
                                         opportunity.elmoIdentifier = identifier.content;
+                                    if (identifier.type == "local")
+                                        opportunity.localIdentifier = identifier.content;
                                 })
                             else if (opportunity.identifier)
                                 opportunity.elmoIdentifier = opportunity.identifier.content;

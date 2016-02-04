@@ -5,6 +5,7 @@
         <th> <div ng-hide="onlyViewing"><input type="checkbox" ng-model="selectAll"
                                                ng-change="selectAllClicked()">
         </div></th>
+        <td>ID</td>
         <th>Code</th>
         <th>Title</th>
         <th>Part of</th>
@@ -23,14 +24,14 @@
                 </div>
             </td>
             <td>{{opportunity.elmoIdentifier}}</td>
+            <td>{{opportunity.locaIdentifier}}</td>
             <td>{{getRightLanguage(opportunity.title)}}</td>
             <td>{{opportunity.partOf}}</td>
             <td>{{opportunity.specifies.learningOpportunityInstance.credit.level}}</td>
             <td>{{opportunity.type}}</td>
             <td>{{opportunity.specifies.learningOpportunityInstance.credit.value}} {{opportunity.specifies.learningOpportunityInstance.credit.scheme}}</td>
             <td>{{opportunity.specifies.learningOpportunityInstance.resultLabel}}</td>
-            <td>{{opportunity.specifies.learningOpportunityInstance.date}}</td>
-            
+            <td>{{opportunity.specifies.learningOpportunityInstance.date}}</td>        
         </tr>
         </tbody>
     </table>
