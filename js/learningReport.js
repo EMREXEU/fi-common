@@ -87,7 +87,7 @@ angular.module('learningReport', [])
                                 angular.forEach(opportunity.identifier, function (identifier) {
                                     if (identifier.type == "elmo")
                                         opportunity.elmoIdentifier = identifier.content;
-                                    if (identifier.type == "local")
+                                    if (identifier.type == "local" || identifier.type == "oodi" ) //TODO remove oodi
                                         opportunity.localIdentifier = identifier.content;
                                 })
                             else if (opportunity.identifier) {
