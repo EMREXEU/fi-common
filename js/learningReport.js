@@ -43,7 +43,7 @@ angular.module('learningReport', [])
                 };
 
                 $scope.selectedLevel = function (opportunity) {
-                    var visible = ($scope.onlyViewing || $scope.levelFilter == "Any") || $scope.levelFilter == opportunity.level;
+                    var visible = ($scope.onlyViewing || $scope.levelFilter == "Any") || $scope.levelFilter == opportunity.specifies.learningOpportunityInstance.credit.level;
                     unselectInvisibleOpportunity(visible, opportunity);
                     return visible;
                 };
